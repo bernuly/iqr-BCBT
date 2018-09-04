@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE System PUBLIC '-//INI/iqr421' 'iqrSystem.dtd'>
+<System syncPlots="false" port="54923" author="ulysses" id="L-5204-1172696310-1714636915" cylesPerSecond="25" name="new system" date="Wed Feb 28 21:58:30 2007&#xa;">
+    <Note></Note>
+    <Process port="54923" path="" hostname="" id="L-5204-1172696317-1957747793" name="New Process 1" enableModule="true" color="#FFFFFF">
+        <Module name="openCVvideo">
+            <Parameter value="true" name="ShowOutput"/>
+            <Parameter value="true" name="Monochrome"/>
+            <Parameter value="false" name="HSV"/>
+            <XRefHolder name="InputFromGroup"/>
+            <XRefHolder name="OutputToGroup">
+                <XRef target="L-5204-1172696319-424238335" name="videoOutputRed"/>
+                <XRef target="CB1366882907L-5204-1172696319-424238335" name="videoOutputGreen"/>
+                <XRef target="CB1366882909CB1366882907L-5204-1172696319-424238335" name="videoOutputBlue"/>
+            </XRefHolder>
+        </Module>
+        <Note></Note>
+        <DiagramIcon width="50" x="79" y="111" height="50"/>
+        <Group id="CB1366882907L-5204-1172696319-424238335" name="Copy of R" color="#FFFFFF">
+            <Topology>
+                <TopologyRect cylinderHor="false" hcount="40" cylinderVert="false" vcount="30"/>
+            </Topology>
+            <Neuron name="neuronLinearThreshold">
+                <Parameter value="1" name="excGain"/>
+                <Parameter value="1" name="inhGain"/>
+                <Parameter value="0" name="vmPrs"/>
+                <Parameter value="false" name="clipVm"/>
+                <Parameter value="0" name="vmMin"/>
+                <Parameter value="1" name="vmMax"/>
+                <Parameter value="1" name="probability"/>
+                <Parameter value="0" name="threshold"/>
+            </Neuron>
+            <Note></Note>
+            <DiagramIcon width="50" x="191" y="97" height="50"/>
+        </Group>
+        <Group id="CB1366882909CB1366882907L-5204-1172696319-424238335" name="Copy of Copy of R" color="#FFFFFF">
+            <Topology>
+                <TopologyRect cylinderHor="false" hcount="40" cylinderVert="false" vcount="30"/>
+            </Topology>
+            <Neuron name="neuronLinearThreshold">
+                <Parameter value="1" name="excGain"/>
+                <Parameter value="1" name="inhGain"/>
+                <Parameter value="0" name="vmPrs"/>
+                <Parameter value="false" name="clipVm"/>
+                <Parameter value="0" name="vmMin"/>
+                <Parameter value="1" name="vmMax"/>
+                <Parameter value="1" name="probability"/>
+                <Parameter value="0" name="threshold"/>
+            </Neuron>
+            <Note></Note>
+            <DiagramIcon width="50" x="260" y="95" height="50"/>
+        </Group>
+        <Group id="L-5204-1172696319-424238335" name="R" color="#FFFFFF">
+            <Topology>
+                <TopologyRect cylinderHor="false" hcount="40" cylinderVert="false" vcount="30"/>
+            </Topology>
+            <Neuron name="neuronLinearThreshold">
+                <Parameter value="1" name="excGain"/>
+                <Parameter value="1" name="inhGain"/>
+                <Parameter value="0" name="vmPrs"/>
+                <Parameter value="false" name="clipVm"/>
+                <Parameter value="0" name="vmMin"/>
+                <Parameter value="1" name="vmMax"/>
+                <Parameter value="1" name="probability"/>
+                <Parameter value="0" name="threshold"/>
+            </Neuron>
+            <Note></Note>
+            <DiagramIcon width="50" x="111" y="95" height="50"/>
+        </Group>
+        <Group id="L-5204-1172696381-1621389680" name="Edges" color="#FFFFFF">
+            <Topology>
+                <TopologyRect cylinderHor="false" hcount="40" cylinderVert="false" vcount="30"/>
+            </Topology>
+            <Neuron name="neuronLinearThreshold">
+                <Parameter value="1" name="excGain"/>
+                <Parameter value="1" name="inhGain"/>
+                <Parameter value="0" name="vmPrs"/>
+                <Parameter value="false" name="clipVm"/>
+                <Parameter value="0" name="vmMin"/>
+                <Parameter value="1" name="vmMax"/>
+                <Parameter value="1" name="probability"/>
+                <Parameter value="0" name="threshold"/>
+            </Neuron>
+            <Note></Note>
+            <DiagramIcon width="50" x="118" y="240" height="50"/>
+        </Group>
+    </Process>
+    <Connection target="L-5204-1172696381-1621389680" type="excitatory" id="L-5204-1172696388-2097902533" source="L-5204-1172696319-424238335" name="Connection New Group 1->Copy of New Group 1">
+        <Pattern>
+            <PatternMapped type="center">
+                <All/>
+                <All/>
+            </PatternMapped>
+        </Pattern>
+        <Arborization>
+            <ArbRectWindow outerwidth="3" direction="RF" initialization_probability="1" outerheight="3" innerwidth="1" innerheight="3"/>
+        </Arborization>
+        <AttenuationFunction>
+            <FunUniform value="0"/>
+        </AttenuationFunction>
+        <DelayFunction>
+            <FunUniform value="0"/>
+        </DelayFunction>
+        <Synapse name="synapseFixedWeight">
+            <Parameter value="0.6" name="weight"/>
+        </Synapse>
+        <Note></Note>
+        <DiagramLine APTarget="3" APSource="11"/>
+    </Connection>
+    <Connection target="L-5204-1172696381-1621389680" type="inhibitory" id="L-5204-1172696422-137684081" source="L-5204-1172696319-424238335" name="Connection New Group 1->Copy of New Group 1">
+        <Pattern>
+            <PatternMapped type="center">
+                <All/>
+                <All/>
+            </PatternMapped>
+        </Pattern>
+        <Arborization>
+            <ArbEllipse width="1" direction="RF" height="3" initialization_probability="1"/>
+        </Arborization>
+        <AttenuationFunction>
+            <FunUniform value="0"/>
+        </AttenuationFunction>
+        <DelayFunction>
+            <FunUniform value="0"/>
+        </DelayFunction>
+        <Synapse name="synapseFixedWeight">
+            <Parameter value="1" name="weight"/>
+        </Synapse>
+        <Note></Note>
+        <DiagramLine APTarget="0" APSource="9"/>
+    </Connection>
+</System>
+

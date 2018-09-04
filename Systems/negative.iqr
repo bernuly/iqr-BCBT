@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE System PUBLIC "-//INI/iqr421" "iqrSystem.dtd">
+<System author="ivanin" cylesPerSecond="25" date="Fri Dec  4 10:59:23 2009&#xA;" id="L-21296-1259920763-1587454131" name="new system" port="54923" syncPlots="false">
+
+  <Note></Note>
+
+  <Process enableModule="true" hostname="" id="L-21296-1259920821-668054240" name="Camera" path="" port="54923">
+    <Module name="moduleVideo">
+      <Parameter name="DeviceName" value="/dev/video0"/>
+      <Parameter name="Input" value="0"/>
+      <Parameter name="Standard" value="0"/>
+      <Parameter name="FPS" value="25"/>
+      <Parameter name="InfoWindow" value="false"/>
+      <Parameter name="ShowOutput" value="true"/>
+      <Parameter name="imgWidth" value="160"/>
+      <Parameter name="imgHeight" value="120"/>
+      <Parameter name="Brightness" value="50"/>
+      <Parameter name="Saturation" value="50"/>
+      <Parameter name="Contrast" value="50"/>
+      <Parameter name="AutoGain" value="1"/>
+      <Parameter name="HSV" value="false"/>
+      <Parameter name="Monochrome" value="false"/>
+      <XRefHolder name="InputFromGroup"/>
+      <XRefHolder name="OutputToGroup">
+        <XRef name="videoOutputRed" target=""/>
+        <XRef name="videoOutputGreen" target=""/>
+        <XRef name="videoOutputBlue" target=""/>
+      </XRefHolder>
+    </Module>
+    <Note></Note>
+    <DiagramIcon height="50" width="50" x="95" y="159"/>
+    <Group id="L-13106-1264152223-1148070367" name="Bias">
+      <Topology>
+        <TopologyRect cylinderHor="false" cylinderVert="false" hcount="1" vcount="1"/>
+      </Topology>
+      <Neuron name="neuronRandomSpike">
+        <Parameter name="probability" value="0.3"/>
+        <Parameter name="spkAmpl" value="1"/>
+      </Neuron>
+      <Note></Note>
+      <DiagramIcon height="50" width="50" x="135" y="23"/>
+    </Group>
+    <Group id="L-21296-1259920869-2021554126" name="Original">
+      <Topology>
+        <TopologyRect cylinderHor="false" cylinderVert="false" hcount="160" vcount="120"/>
+      </Topology>
+      <Neuron name="neuronLinearThreshold">
+        <Parameter name="excGain" value="1"/>
+        <Parameter name="inhGain" value="1"/>
+        <Parameter name="vmPrs" value="0"/>
+        <Parameter name="clipVm" value="false"/>
+        <Parameter name="vmMin" value="0"/>
+        <Parameter name="vmMax" value="1"/>
+        <Parameter name="probability" value="1"/>
+        <Parameter name="threshold" value="0"/>
+      </Neuron>
+      <Note></Note>
+      <DiagramIcon height="50" width="50" x="23" y="23"/>
+    </Group>
+    <Group id="L-21296-1259920987-1204658727" name="Dummy">
+      <Topology>
+        <TopologyRect cylinderHor="false" cylinderVert="false" hcount="160" vcount="120"/>
+      </Topology>
+      <Neuron name="neuronLinearThreshold">
+        <Parameter name="excGain" value="1"/>
+        <Parameter name="inhGain" value="1"/>
+        <Parameter name="vmPrs" value="0"/>
+        <Parameter name="clipVm" value="false"/>
+        <Parameter name="vmMin" value="0"/>
+        <Parameter name="vmMax" value="1"/>
+        <Parameter name="probability" value="1"/>
+        <Parameter name="threshold" value="0"/>
+      </Neuron>
+      <Note></Note>
+      <DiagramIcon height="50" width="50" x="135" y="135"/>
+    </Group>
+    <Group id="L-21603-1259921729-99561662" name="Negative">
+      <Topology>
+        <TopologyRect cylinderHor="false" cylinderVert="false" hcount="160" vcount="120"/>
+      </Topology>
+      <Neuron name="neuronLinearThreshold">
+        <Parameter name="excGain" value="1"/>
+        <Parameter name="inhGain" value="1"/>
+        <Parameter name="vmPrs" value="0"/>
+        <Parameter name="clipVm" value="false"/>
+        <Parameter name="vmMin" value="0"/>
+        <Parameter name="vmMax" value="1"/>
+        <Parameter name="probability" value="1"/>
+        <Parameter name="threshold" value="0"/>
+      </Neuron>
+      <Note></Note>
+      <DiagramIcon height="50" width="50" x="23" y="135"/>
+    </Group>
+  </Process>
+
+</System>
+

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE System PUBLIC '-//INI/iqr421' 'iqrSystem.dtd'>
+<System syncPlots="true" port="54923" author="mlechon" id="L-2895-1253125678-1653377373" cylesPerSecond="25" name="BTleJOSMindstorm" date="Wed Sep 16 20:27:58 2009&#xa;">
+    <Note></Note>
+    <Process port="54923" path="" hostname="" id="L-2895-1253125684-859484421" name="BTleJOSMindstorm" enableModule="true" color="#FFFFFF">
+        <Module name="moduleBTleJOSMindstorm">
+            <Parameter value="COM5" name="device_name"/>
+            <Parameter value="25" name="cps"/>
+            <XRefHolder name="InputFromGroup">
+                <XRef target="L-2895-1253125756-756898537" name="motors"/>
+            </XRefHolder>
+            <XRefHolder name="OutputToGroup">
+                <XRef target="L-7927-1267369372-435077513" name="sensors"/>
+            </XRefHolder>
+        </Module>
+        <Note></Note>
+        <DiagramIcon width="50" x="87" y="102" height="50"/>
+        <Group id="L-2895-1253125756-756898537" name="Motor L/R Speed" color="#FFFFFF">
+            <Topology>
+                <TopologyRect cylinderHor="false" hcount="2" cylinderVert="false" vcount="2"/>
+            </Topology>
+            <Neuron name="neuronLinearThreshold">
+                <Parameter value="1" name="excGain"/>
+                <Parameter value="1" name="inhGain"/>
+                <Parameter value="0" name="vmPrs"/>
+                <Parameter value="false" name="clipVm"/>
+                <Parameter value="0" name="vmMin"/>
+                <Parameter value="1" name="vmMax"/>
+                <Parameter value="1" name="probability"/>
+                <Parameter value="0" name="threshold"/>
+            </Neuron>
+            <Note></Note>
+            <DiagramIcon width="50" x="81" y="56" height="50"/>
+        </Group>
+        <Group id="L-7927-1267369372-435077513" name="Sensors" color="#FFFFFF">
+            <Topology>
+                <TopologyRect cylinderHor="false" hcount="4" cylinderVert="false" vcount="1"/>
+            </Topology>
+            <Neuron name="neuronLinearThreshold">
+                <Parameter value="1" name="excGain"/>
+                <Parameter value="1" name="inhGain"/>
+                <Parameter value="0" name="vmPrs"/>
+                <Parameter value="false" name="clipVm"/>
+                <Parameter value="0" name="vmMin"/>
+                <Parameter value="1" name="vmMax"/>
+                <Parameter value="1" name="probability"/>
+                <Parameter value="0" name="threshold"/>
+            </Neuron>
+            <Note></Note>
+            <DiagramIcon width="50" x="332" y="54" height="50"/>
+        </Group>
+    </Process>
+    <Connection target="L-2895-1253125756-756898537" type="excitatory" id="O-3380-1361175443-26500" source="L-7927-1267369372-435077513" name="Connection Sensor 01->Motor L/R Speed">
+        <Pattern>
+            <PatternTuples>
+                <Tuple>
+                    <SourceList>
+                        <Point x="1" y="1"/>
+                    </SourceList>
+                    <TargetList>
+                        <Point x="1" y="2"/>
+                        <Point x="2" y="2"/>
+                    </TargetList>
+                </Tuple>
+                <Tuple>
+                    <SourceList>
+                        <Point x="4" y="1"/>
+                    </SourceList>
+                    <TargetList>
+                        <Point x="1" y="1"/>
+                        <Point x="2" y="1"/>
+                    </TargetList>
+                </Tuple>
+            </PatternTuples>
+        </Pattern>
+        <Arborization>
+            <ArbRect width="1" direction="RF" height="1" initialization_probability="1"/>
+        </Arborization>
+        <AttenuationFunction>
+            <FunUniform value="0"/>
+        </AttenuationFunction>
+        <DelayFunction>
+            <FunUniform value="0"/>
+        </DelayFunction>
+        <Synapse name="synapseFixedWeight">
+            <Parameter value="1" name="weight"/>
+        </Synapse>
+        <Note></Note>
+        <DiagramLine APTarget="4" APSource="12"/>
+    </Connection>
+</System>
+

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE System PUBLIC '-//INI/iqr421' 'iqrSystem.dtd'>
+<System syncPlots="false" port="54923" author="Ulysses" id="O-8448-1360928549-5097" cylesPerSecond="0" name="new system" date="Fri Feb 15 03:42:29 2013&#xa;">
+    <Note></Note>
+    <Process port="54923" path="" hostname="" id="O-8448-1360928553-16512" name="Tut 2 Process" enableModule="true" color="#FFFFFF">
+        <Note></Note>
+        <DiagramIcon width="50" x="163" y="94" height="50"/>
+        <Group id="CB1360928594O-8448-1360928573-23986" name="LinearThreshold" color="#FFFFFF">
+            <Topology>
+                <TopologyRect cylinderHor="false" hcount="1" cylinderVert="false" vcount="1"/>
+            </Topology>
+            <Neuron name="neuronLinearThreshold">
+                <Parameter value="1" name="excGain"/>
+                <Parameter value="1" name="inhGain"/>
+                <Parameter value="0" name="vmPrs"/>
+                <Parameter value="false" name="clipVm"/>
+                <Parameter value="0" name="vmMin"/>
+                <Parameter value="1" name="vmMax"/>
+                <Parameter value="1" name="probability"/>
+                <Parameter value="0" name="threshold"/>
+            </Neuron>
+            <Note></Note>
+            <DiagramIcon width="50" x="196" y="51" height="50"/>
+        </Group>
+        <Group id="CB1360928598O-8448-1360928573-23986" name="Integrate and fire" color="#FFFFFF">
+            <Topology>
+                <TopologyRect cylinderHor="false" hcount="1" cylinderVert="false" vcount="1"/>
+            </Topology>
+            <Neuron name="neuronLinearThreshold">
+                <Parameter value="1" name="excGain"/>
+                <Parameter value="1" name="inhGain"/>
+                <Parameter value="0" name="vmPrs"/>
+                <Parameter value="false" name="clipVm"/>
+                <Parameter value="0" name="vmMin"/>
+                <Parameter value="1" name="vmMax"/>
+                <Parameter value="1" name="probability"/>
+                <Parameter value="0" name="threshold"/>
+            </Neuron>
+            <Note></Note>
+            <DiagramIcon width="50" x="195" y="141" height="50"/>
+        </Group>
+        <Group id="CB1360928602O-8448-1360928573-23986" name="Sigmoid" color="#FFFFFF">
+            <Topology>
+                <TopologyRect cylinderHor="false" hcount="1" cylinderVert="false" vcount="1"/>
+            </Topology>
+            <Neuron name="neuronLinearThreshold">
+                <Parameter value="1" name="excGain"/>
+                <Parameter value="1" name="inhGain"/>
+                <Parameter value="0" name="vmPrs"/>
+                <Parameter value="false" name="clipVm"/>
+                <Parameter value="0" name="vmMin"/>
+                <Parameter value="1" name="vmMax"/>
+                <Parameter value="1" name="probability"/>
+                <Parameter value="0" name="threshold"/>
+            </Neuron>
+            <Note></Note>
+            <DiagramIcon width="50" x="197" y="228" height="50"/>
+        </Group>
+        <Group id="O-8448-1360928573-23986" name="RandomSpike Group" color="#FFFFFF">
+            <Topology>
+                <TopologyRect cylinderHor="false" hcount="10" cylinderVert="false" vcount="10"/>
+            </Topology>
+            <Neuron name="neuronLinearThreshold">
+                <Parameter value="1" name="excGain"/>
+                <Parameter value="1" name="inhGain"/>
+                <Parameter value="0" name="vmPrs"/>
+                <Parameter value="false" name="clipVm"/>
+                <Parameter value="0" name="vmMin"/>
+                <Parameter value="1" name="vmMax"/>
+                <Parameter value="1" name="probability"/>
+                <Parameter value="0" name="threshold"/>
+            </Neuron>
+            <Note></Note>
+            <DiagramIcon width="50" x="70" y="140" height="50"/>
+        </Group>
+    </Process>
+    <Connection target="CB1360928598O-8448-1360928573-23986" type="excitatory" id="O-8448-1360928674-27938" source="O-8448-1360928573-23986" name="Connection RandomSpike Group->Integrate and fire">
+        <Pattern>
+            <PatternMapped type="center">
+                <All/>
+                <All/>
+            </PatternMapped>
+        </Pattern>
+        <Arborization>
+            <ArbRect width="1" direction="RF" height="1" initialization_probability="1"/>
+        </Arborization>
+        <AttenuationFunction>
+            <FunUniform value="0"/>
+        </AttenuationFunction>
+        <DelayFunction>
+            <FunUniform value="0"/>
+        </DelayFunction>
+        <Synapse name="synapseFixedWeight">
+            <Parameter value="1" name="weight"/>
+        </Synapse>
+        <Note></Note>
+        <DiagramLine APTarget="14" APSource="6"/>
+    </Connection>
+    <Connection target="CB1360928594O-8448-1360928573-23986" type="excitatory" id="O-8448-1360928680-3788" source="O-8448-1360928573-23986" name="Connection RandomSpike Group->LinearThreshold">
+        <Pattern>
+            <PatternMapped type="center">
+                <All/>
+                <All/>
+            </PatternMapped>
+        </Pattern>
+        <Arborization>
+            <ArbRect width="1" direction="RF" height="1" initialization_probability="1"/>
+        </Arborization>
+        <AttenuationFunction>
+            <FunUniform value="0"/>
+        </AttenuationFunction>
+        <DelayFunction>
+            <FunUniform value="0"/>
+        </DelayFunction>
+        <Synapse name="synapseFixedWeight">
+            <Parameter value="1" name="weight"/>
+        </Synapse>
+        <Note></Note>
+        <DiagramLine APTarget="14" APSource="4"/>
+    </Connection>
+    <Connection target="CB1360928602O-8448-1360928573-23986" type="excitatory" id="O-8448-1360928685-467" source="O-8448-1360928573-23986" name="Connection RandomSpike Group->Sigmoid">
+        <Pattern>
+            <PatternMapped type="center">
+                <All/>
+                <All/>
+            </PatternMapped>
+        </Pattern>
+        <Arborization>
+            <ArbRect width="1" direction="RF" height="1" initialization_probability="1"/>
+        </Arborization>
+        <AttenuationFunction>
+            <FunUniform value="0"/>
+        </AttenuationFunction>
+        <DelayFunction>
+            <FunUniform value="0"/>
+        </DelayFunction>
+        <Synapse name="synapseFixedWeight">
+            <Parameter value="1" name="weight"/>
+        </Synapse>
+        <Note></Note>
+        <DiagramLine APTarget="13" APSource="7"/>
+    </Connection>
+</System>
+

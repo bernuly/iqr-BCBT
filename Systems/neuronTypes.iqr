@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE System PUBLIC '-//INI/iqr421' 'iqrSystem.dtd'>
+<System syncPlots="true" port="54923" author="Ulysses" id="O-1480-1366868072-41" cylesPerSecond="15" name="new system" date="Wed Apr 24 22:34:32 2013&#xa;">
+    <Note></Note>
+    <Process port="54923" path="" hostname="" id="O-1480-1366868088-18467" name="New Process 1" enableModule="true" color="#FFFFFF">
+        <Note></Note>
+        <DiagramIcon width="50" x="106" y="100" height="50"/>
+        <Group id="O-1480-1366868090-6334" name="New Group 1" color="#FFFFFF">
+            <Topology>
+                <TopologyRect cylinderHor="false" hcount="1" cylinderVert="false" vcount="1"/>
+            </Topology>
+            <Neuron name="neuronRandomSpike">
+                <Parameter value="0.5" name="probability"/>
+                <Parameter value="1" name="spkAmpl"/>
+            </Neuron>
+            <Note></Note>
+            <DiagramIcon width="50" x="77" y="121" height="50"/>
+        </Group>
+        <Group id="O-1480-1366868120-26500" name="I+F" color="#FFFFFF">
+            <Topology>
+                <TopologyRect cylinderHor="false" hcount="1" cylinderVert="false" vcount="1"/>
+            </Topology>
+            <Neuron name="neuronIntegrateFire">
+                <Parameter value="0.2" name="excGain"/>
+                <Parameter value="1" name="inhGain"/>
+                <Parameter value="0.8" name="vmPrs"/>
+                <Parameter value="false" name="clipVm"/>
+                <Parameter value="0" name="vmMin"/>
+                <Parameter value="1" name="vmMax"/>
+                <Parameter value="1" name="probability"/>
+                <Parameter value="0.6" name="threshold"/>
+                <Parameter value="1" name="spkAmpl"/>
+                <Parameter value="1" name="vmReset"/>
+            </Neuron>
+            <Note></Note>
+            <DiagramIcon width="50" x="233" y="57" height="50"/>
+        </Group>
+        <Group id="O-1480-1366868132-19169" name="LT" color="#FFFFFF">
+            <Topology>
+                <TopologyRect cylinderHor="false" hcount="1" cylinderVert="false" vcount="1"/>
+            </Topology>
+            <Neuron name="neuronLinearThreshold">
+                <Parameter value="0.2" name="excGain"/>
+                <Parameter value="1" name="inhGain"/>
+                <Parameter value="0.8" name="vmPrs"/>
+                <Parameter value="false" name="clipVm"/>
+                <Parameter value="0" name="vmMin"/>
+                <Parameter value="1" name="vmMax"/>
+                <Parameter value="1" name="probability"/>
+                <Parameter value="0.6" name="threshold"/>
+            </Neuron>
+            <Note></Note>
+            <DiagramIcon width="50" x="267" y="191" height="50"/>
+        </Group>
+        <Group id="O-1480-1366868200-491" name="New Group 4" color="#FFFFFF">
+            <Topology>
+                <TopologyRect cylinderHor="false" hcount="1" cylinderVert="false" vcount="1"/>
+            </Topology>
+            <Neuron name="neuronLinearThreshold">
+                <Parameter value="0.2" name="excGain"/>
+                <Parameter value="1" name="inhGain"/>
+                <Parameter value="0.8" name="vmPrs"/>
+                <Parameter value="false" name="clipVm"/>
+                <Parameter value="0" name="vmMin"/>
+                <Parameter value="1" name="vmMax"/>
+                <Parameter value="1" name="probability"/>
+                <Parameter value="0" name="threshold"/>
+            </Neuron>
+            <Note></Note>
+            <DiagramIcon width="50" x="131" y="277" height="50"/>
+        </Group>
+    </Process>
+    <Connection target="O-1480-1366868120-26500" type="excitatory" id="O-1480-1366868139-15724" source="O-1480-1366868090-6334" name="Connection New Group 1->I+F">
+        <Pattern>
+            <PatternMapped type="center">
+                <All/>
+                <All/>
+            </PatternMapped>
+        </Pattern>
+        <Arborization>
+            <ArbRect width="1" direction="RF" height="1" initialization_probability="1"/>
+        </Arborization>
+        <AttenuationFunction>
+            <FunUniform value="0"/>
+        </AttenuationFunction>
+        <DelayFunction>
+            <FunUniform value="0"/>
+        </DelayFunction>
+        <Synapse name="synapseFixedWeight">
+            <Parameter value="1" name="weight"/>
+        </Synapse>
+        <Note></Note>
+        <DiagramLine APTarget="14" APSource="4"/>
+    </Connection>
+    <Connection target="O-1480-1366868200-491" type="excitatory" id="O-1480-1366868142-29358" source="O-1480-1366868090-6334" name="Connection New Group 1->LT">
+        <Pattern>
+            <PatternMapped type="center">
+                <All/>
+                <All/>
+            </PatternMapped>
+        </Pattern>
+        <Arborization>
+            <ArbRect width="1" direction="RF" height="1" initialization_probability="1"/>
+        </Arborization>
+        <AttenuationFunction>
+            <FunUniform value="0"/>
+        </AttenuationFunction>
+        <DelayFunction>
+            <FunUniform value="0"/>
+        </DelayFunction>
+        <Synapse name="synapseFixedWeight">
+            <Parameter value="1" name="weight"/>
+        </Synapse>
+        <Note></Note>
+        <DiagramLine APTarget="0" APSource="6"/>
+    </Connection>
+    <Connection target="O-1480-1366868132-19169" type="excitatory" id="O-1480-1366868219-11942" source="O-1480-1366868090-6334" name="Connection New Group 4->LT">
+        <Pattern>
+            <PatternMapped type="center">
+                <All/>
+                <All/>
+            </PatternMapped>
+        </Pattern>
+        <Arborization>
+            <ArbRect width="1" direction="RF" height="1" initialization_probability="1"/>
+        </Arborization>
+        <AttenuationFunction>
+            <FunUniform value="0"/>
+        </AttenuationFunction>
+        <DelayFunction>
+            <FunUniform value="0"/>
+        </DelayFunction>
+        <Synapse name="synapseFixedWeight">
+            <Parameter value="1" name="weight"/>
+        </Synapse>
+        <Note></Note>
+        <DiagramLine APTarget="12" APSource="7"/>
+    </Connection>
+</System>
+
