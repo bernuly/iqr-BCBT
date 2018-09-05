@@ -1,4 +1,5 @@
 # Preparation for the BCBT iqr tutorial
+Ulysses Bernardet <u.bernardet@aston.ac.uk>
 
 ## Installing iqr
 either
