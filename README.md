@@ -4,6 +4,7 @@ Ulysses Bernardet <u.bernardet@aston.ac.uk>
 ## Installing iqr
 either
 - Install the binary from https://sourceforge.net/projects/iqr/files/iqr/2.5.5/ (Windows only)
+  ** please download ``Qt5Xml.dll`` form this page and copy it to ``C:\Program Files (x86)\iqr``**
 
 or
 
