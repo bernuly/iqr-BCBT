@@ -8,6 +8,7 @@ either
 or
 
 - Download Linux image from https://drive.google.com/uc?id=1oLYpW3gZCc13LMx94p71Ck8E9GTufTH3&export=download
+  (this requires installing Oracle VirtualBox https://www.virtualbox.org/wiki/Downloads)
 
 ## Manual, Tutorials, example files
 - [Tutorials](Tutorials/)
